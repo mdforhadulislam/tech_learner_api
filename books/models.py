@@ -1,5 +1,5 @@
 from django.db import models
-from utils.models import Session
+from utils.models import Session,Tag
 
 
 
@@ -15,7 +15,7 @@ class Categories(models.Model):
         return self.title
 
 
-class Free_book_page(models.Model):
+class FreeBookPage(models.Model):
    book_name = models.CharField(max_length=100, blank=True, null=True)
    book_page_number = models.CharField(max_length=100, blank=True, null=True)
    book_image = models.ImageField(upload_to='free_pages/', blank=True, null=True)
@@ -25,24 +25,26 @@ class Free_book_page(models.Model):
 
 
 
-class Free_books(models.Model):
+class FreeBooks(models.Model):
    book_name = models.CharField(max_length=100, blank=True, null=True)
-   book_images = models.ManyToManyField(Free_book_page)
+   book_images = models.ManyToManyField(FreeBookPage, blank=True)
    def __str__(self):
        return f"{self.book_name}"
 
    
 
-
 class Book(models.Model):
+   book_categories =  models.ForeignKey(Categories, on_delete=models.CASCADE)
    book_title = models.CharField(max_length=50, blank=True, null=True)
    book_title_bn = models.CharField(max_length=50, blank=True, null=True)
    book_details = models.TextField(blank=True, null=True)
    book_details_bn = models.TextField(blank=True, null=True)
+   book_tag = models.ManyToManyField(Tag, blank=True)
    book_subject_code = models.CharField(max_length=10, blank=True, null=True)
    book_session =  models.ForeignKey(Session, on_delete=models.CASCADE)
    book_image =  models.ImageField(upload_to='books/', blank=True, null=True)
-   free_book_image = models.ForeignKey(Free_books, on_delete=models.CASCADE)
+   free_book_image = models.ForeignKey(FreeBooks, on_delete=models.CASCADE)
+   book_price = models.CharField(max_length=50, blank=True, null=True)
       
    def __str__(self):
         return f"{self.book_title} - {self.book_subject_code}"
@@ -56,6 +58,7 @@ class Chapter(models.Model):
 
    def __str__(self):
         return f"{self.book_name} - {self.chapter_name} - {self.chapter_number}"
+
 
 
 class Pages(models.Model):

@@ -3,4 +3,6 @@ from .models import *
 
 # Register your models here.
 admin.site.register(Balance)
-admin.site.register(Balance_History)
+admin.site.register(BalanceHistory)
+admin.site.register(BalanceCreditRequest)
+admin.site.register(BalanceWithdrawRequest)
