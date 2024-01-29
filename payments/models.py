@@ -58,3 +58,15 @@ class BalanceWithdrawRequest(models.Model):
    
    def __str__(self):
       return f'Method:- {self.method} -  Number:- {self.number} -  Taka:- {self.withdraw_amount} - {self.is_accepted}'
+
+
+
+
+
+class Subscription(models.Model):
+   name = models.CharField(max_length=20, blank=True, null=True)
+   price = models.CharField(max_length=20, blank=True, null=True)
+   start_date = models.DateField(null=True)
+   end_date = models.DateField(null=True)
+   def __str__(self):
+      return f'{self.name} - {self.price} - {self.start_date} - to - {self.end_date}'
