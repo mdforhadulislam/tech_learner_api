@@ -71,4 +71,3 @@ class Pages(models.Model):
    def __str__(self):
         return f"{self.book_name} - {self.chapter_name} - {self.pages_number}"
 
-
