@@ -34,16 +34,16 @@ class FreeBooks(models.Model):
    
 
 class Book(models.Model):
-   book_categories =  models.ForeignKey(Categories, on_delete=models.CASCADE)
+   book_categories =  models.ForeignKey(Categories, on_delete=models.CASCADE, blank=True, null=True)
    book_title = models.CharField(max_length=50, blank=True, null=True)
    book_title_bn = models.CharField(max_length=50, blank=True, null=True)
    book_details = models.TextField(blank=True, null=True)
    book_details_bn = models.TextField(blank=True, null=True)
    book_tag = models.ManyToManyField(Tag, blank=True)
    book_subject_code = models.CharField(max_length=10, blank=True, null=True)
-   book_session =  models.ForeignKey(Session, on_delete=models.CASCADE)
+   book_session =  models.ForeignKey(Session, on_delete=models.CASCADE, blank=True, null=True)
    book_image =  models.ImageField(upload_to='books/', blank=True, null=True)
-   free_book_image = models.ForeignKey(FreeBooks, on_delete=models.CASCADE)
+   free_book_image = models.ForeignKey(FreeBooks, on_delete=models.CASCADE, blank=True, null=True)
    book_price = models.CharField(max_length=50, blank=True, null=True)
       
    def __str__(self):
@@ -51,7 +51,7 @@ class Book(models.Model):
 
 
 class Chapter(models.Model):
-   book_id = models.ForeignKey(Book, on_delete=models.CASCADE)
+   book_id = models.ForeignKey(Book, on_delete=models.CASCADE, blank=True, null=True)
    book_name = models.CharField(max_length=50, blank=True, null=True)
    chapter_name = models.CharField(max_length=100, blank=True, null=True)
    chapter_number = models.CharField(max_length=20, blank=True, null=True)
@@ -62,7 +62,7 @@ class Chapter(models.Model):
 
 
 class Pages(models.Model):
-   chapter_id = models.ForeignKey(Chapter, on_delete=models.CASCADE)
+   chapter_id = models.ForeignKey(Chapter, on_delete=models.CASCADE, blank=True, null=True)
    book_name= models.CharField(max_length=50, blank=True, null=True)
    chapter_name = models.CharField(max_length=100, blank=True, null=True)
    pages_number = models.CharField(max_length=20, blank=True, null=True)

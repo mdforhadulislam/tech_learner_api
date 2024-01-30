@@ -30,3 +30,9 @@ class RegisterSerializer(serializers.ModelSerializer):
         )
         return user
 
+
+
+class UserProfileInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserProfileInfo
+        fields = "__all__"

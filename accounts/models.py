@@ -19,7 +19,7 @@ BLOOD_GROUP = (
 
 
 class UserProfileInfo(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     user_profile_image = models.ImageField(
         upload_to='profile/', blank=True, null=True)
     mobile_number = models.CharField(max_length=20, blank=True, null=True)
@@ -52,27 +52,27 @@ class SiteVisitedChartData(models.Model):
 
 
 class UserBookReadedChart(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     name = models.CharField(max_length=20, blank=True, null=True)
     datas = models.ManyToManyField(BookReadedChartData, blank=True)
     def __str__(self):
-        return  self.name 
+        return  f'{self.name}'
     
 class UserSiteVisitedChart(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     name = models.CharField(max_length=20, blank=True, null=True)
     datas = models.ManyToManyField(SiteVisitedChartData, blank=True)
     def __str__(self):
-        return  self.name 
+        return  f'{self.name}'
 
 
 
 
 class AccessBook(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     access_book = models.ManyToManyField(Book, blank=True)
 
 
 class ReadedBook(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     readed_book = models.ManyToManyField(Book, blank=True)
