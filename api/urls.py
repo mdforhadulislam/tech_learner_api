@@ -3,10 +3,10 @@ from .views import *
 from knox import views as knox_views
 from accounts.views import *
 
-urlpatterns = [
-    path('auth/login/', login, name='login'),
-    path('auth/register/', register, name='register'),
-    path('auth/logout/', knox_views.LogoutView.as_view(), name='logout'),
+# urlpatterns = [
+#     path('auth/login/', login, name='login'),
+#     path('auth/register/', register, name='register'),
+#     path('auth/logout/', knox_views.LogoutView.as_view(), name='logout'),
     # auth/account/ ----user info
     # auth/balance/ user account balance
     # chart/book-readed/ ----book readed chart
@@ -22,6 +22,9 @@ urlpatterns = [
     # book/access-book/ --only show user access book
     # book/readed-book/ --only show user access book
     # subscription/ --show all Subscription
+    
+    
+    
     # land/hero/ ---show hero all data
     # land/subscription/ ---show all subscription plan
     # land/about/ ---about datiles 

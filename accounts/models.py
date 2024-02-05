@@ -17,7 +17,6 @@ BLOOD_GROUP = (
 )
 
 
-
 class UserProfileInfo(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     user_profile_image = models.ImageField(
@@ -49,8 +48,6 @@ class SiteVisitedChartData(models.Model):
         return f'{self.name} - {self.date}'
 
 
-
-
 class UserBookReadedChart(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     name = models.CharField(max_length=20, blank=True, null=True)
@@ -67,7 +64,6 @@ class UserSiteVisitedChart(models.Model):
 
 
 
-
 class AccessBook(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     access_book = models.ManyToManyField(Book, blank=True)
@@ -76,3 +72,4 @@ class AccessBook(models.Model):
 class ReadedBook(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     readed_book = models.ManyToManyField(Book, blank=True)
+
