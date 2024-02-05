@@ -1,6 +1,6 @@
 from django.urls import path, include
 from .views import *
-from knox import views as knox_views
+# from knox import views as knox_views
 from accounts.views import *
 
 # urlpatterns = [
@@ -32,4 +32,4 @@ from accounts.views import *
     # land/ques-ans/ ----question and answer section
     # land/help-about/ -----our all deatils
     # land/help-contact/ ----contact with us
-]
+# ]
