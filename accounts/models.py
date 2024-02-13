@@ -36,6 +36,7 @@ class BookReadedChartData(models.Model):
     name  = models.CharField(max_length=12, blank=True, null=True)
     date = models.DateField( default=datetime.now(), blank=True, null=True)
     book_readed_number = models.CharField(max_length=12, blank=True, null=True)
+
     def __str__(self):
         return f'{self.name} - {self.date}'
    
@@ -44,6 +45,7 @@ class SiteVisitedChartData(models.Model):
     name  = models.CharField(max_length=12, blank=True, null=True)
     date = models.DateField( default=datetime.now(), blank=True, null=True)
     site_visited_number = models.CharField(max_length=12, blank=True, null=True)
+
     def __str__(self):
         return f'{self.name} - {self.date}'
 
@@ -52,6 +54,7 @@ class UserBookReadedChart(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     name = models.CharField(max_length=20, blank=True, null=True)
     datas = models.ManyToManyField(BookReadedChartData, blank=True)
+
     def __str__(self):
         return  f'{self.name}'
     
@@ -59,6 +62,7 @@ class UserSiteVisitedChart(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     name = models.CharField(max_length=20, blank=True, null=True)
     datas = models.ManyToManyField(SiteVisitedChartData, blank=True)
+
     def __str__(self):
         return  f'{self.name}'
 
