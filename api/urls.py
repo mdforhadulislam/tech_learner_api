@@ -35,4 +35,4 @@ urlpatterns = [
     # land/ques-ans/ ----question and answer section
     # land/help-about/ -----our all deatils
     # land/help-contact/ ----contact with us
-# ]
+]
