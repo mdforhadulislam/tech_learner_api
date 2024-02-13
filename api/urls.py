@@ -1,9 +1,11 @@
 from django.urls import path, include
+
+from landing.views import landingHeroData
 from .views import *
-from knox import views as knox_views
+# from knox import views as knox_views
 from accounts.views import *
 
-# urlpatterns = [
+urlpatterns = [
 #     path('auth/login/', login, name='login'),
 #     path('auth/register/', register, name='register'),
 #     path('auth/logout/', knox_views.LogoutView.as_view(), name='logout'),
@@ -25,7 +27,8 @@ from accounts.views import *
     
     
     
-    # land/hero/ ---show hero all data
+   #  land/hero/ ---show hero all data
+    path('land/hero/', landingHeroData, name='landing-hero-data'),
     # land/subscription/ ---show all subscription plan
     # land/about/ ---about datiles 
     # land/about/team-member/ ---about team member datiles 

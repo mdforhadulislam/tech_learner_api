@@ -65,7 +65,11 @@ class BalanceWithdrawRequest(models.Model):
 
 class Subscription(models.Model):
    name = models.CharField(max_length=20, blank=True, null=True)
+   name_bn = models.CharField(max_length=20, blank=True, null=True)
    price = models.CharField(max_length=20, blank=True, null=True)
+   price_bn = models.CharField(max_length=20, blank=True, null=True)
+   access_time = models.CharField(max_length=20, blank=True, null=True)
+   access_time_bn = models.CharField(max_length=20, blank=True, null=True)
    start_date = models.DateField(null=True)
    end_date = models.DateField(null=True)
    def __str__(self):
