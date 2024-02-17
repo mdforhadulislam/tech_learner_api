@@ -9,3 +9,7 @@ class LandingHeroSerializer(serializers.ModelSerializer):
 
 
 
+class LandingSubscriptionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LandingSubscription
+        fields = "__all__"

@@ -15,3 +15,16 @@ def landingHeroData(request):
         return respons_setup('get all landing', all_landing_data, 200)
    except Exception as error:
         return respons_setup('there was an servier said error', {}, 400)
+
+
+
+@api_view(["GET"])
+def landingSubscriptionData(request):
+     try:
+          all_landing_subscription = LandingSubscription.objects.all()
+          all_landing_subscription_data_serializer = LandingSubscriptionSerializer(all_landing_subscription,many=True)
+          all_landing_subscription_data = all_landing_subscription_data_serializer.data
+          return respons_setup('get all landing subscription', all_landing_subscription_data, 200)
+     except Exception as error:
+        return respons_setup('there was an servier said error', {}, 400)
+     
