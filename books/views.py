@@ -17,15 +17,34 @@ def all_categories(request):
       return respons_setup('there was an servier said error', {}, 400)
 
 
+@api_view(["GET"])
 def under_categories_book(request,id):
    try:
       single_categories = Categories.objects.get(id=id)
       single_categories_data_serializer = CategoriesSerializers(single_categories)
       single_categories_data = single_categories_data_serializer.data
-      return respons_setup('get all categories', single_categories_data, 200)
+   
+      all_book = Book.objects.filter(book_categories=single_categories_data["id"])
+      all_book_data_serializer = BookSerializers(all_book, many=True)
+      all_book_data = all_book_data_serializer.data
+      
+      return respons_setup('get all categories', all_book_data, 200)
    except Exception as error:
       print(error)
       return respons_setup('there was an servier said error', {}, 400)
 
 
    
+
+@api_view(["GET"])
+def landing_book(request,id):
+   try:
+      all_book = Book.objects.all()
+      all_book_data_serializer = BookSerializers(all_book, many=True)
+      all_book_data = all_book_data_serializer.data
+      
+      return respons_setup('get all books', all_book_data, 200)
+   except Exception as error:
+      print(error)
+      return respons_setup('there was an servier said error', {}, 400)
+

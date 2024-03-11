@@ -3,6 +3,7 @@ from books.views import *
 
 from landing.views import *
 from payments.views import *
+from utils.views import *
 from .views import *
 # from knox import views as knox_views
 from accounts.views import *
@@ -37,10 +38,14 @@ urlpatterns = [
     
     
     path('land/categories/',all_categories, name='landing-categories-data'),
+    path('land/categories/<str:id>/',under_categories_book, name='landing-categories-data'),
     
     # land/about/ ---about datiles 
     # land/about/team-member/ ---about team member datiles 
     # land/ques-ans/ ----question and answer section
     # land/help-about/ -----our all deatils
     # land/help-contact/ ----contact with us
+    
+    path('utils/session/<str:id>/',session_data, name='utils-session-data'),
+    path('utils/tag/<str:id>/',tag_data, name='utils-tag-data'),
 ]

@@ -13,6 +13,12 @@ class FreeBookPageSerializers(serializers.ModelSerializer):
       fields = "__all__"
       
 
+class FreeBooksSerializers(serializers.ModelSerializer):
+   class Meta:
+      model = FreeBooks
+      fields = "__all__"
+   
+
 
 class BookSerializers(serializers.ModelSerializer):
    class Meta:

@@ -10,7 +10,7 @@ from utils.views import respons_setup
 @api_view(['GET'])
 def subscription_single_data(request,id):
    try:
-        subscription_data = Subscription.objects.get()
+        subscription_data = Subscription.objects.get(id=id)
         single_subscription_data_serializer = SubscriptionSerializers(subscription_data)
         single_subscription_data = single_subscription_data_serializer.data
         return respons_setup('get single subscription data', single_subscription_data, 200)
