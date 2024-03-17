@@ -8,7 +8,11 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
+<<<<<<< HEAD
 set VIRTUAL_ENV=D:\tech-learner-backend-app\env
+=======
+set VIRTUAL_ENV=D:\Forhad\tech-learner-api\env
+>>>>>>> cb1a13782f8f08e95846dd5b015668938107b13b
 
 if not defined PROMPT set PROMPT=$P$G
 
