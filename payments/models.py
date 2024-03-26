@@ -27,7 +27,7 @@ class BalanceHistory(models.Model):
 
 
 class Balance(models.Model):
-   user_id = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+   user_id = models.CharField(max_length=200, blank=True, null=True)
    main_balance = models.CharField(max_length=50, blank=True, null=True)
    balance_history = models.ManyToManyField(BalanceHistory, blank=True)
    
@@ -36,7 +36,7 @@ class Balance(models.Model):
 
 
 class BalanceCreditRequest(models.Model):
-   user_id = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+   user_id = models.CharField(max_length=200, blank=True, null=True)
    method = models.CharField(
         max_length=20, choices=METHOD_TYPE, default=' ', blank=True, null=True)
    number = models.CharField(max_length=15, blank=True, null=True)
@@ -49,7 +49,7 @@ class BalanceCreditRequest(models.Model):
 
 
 class BalanceWithdrawRequest(models.Model):
-   user_id = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+   user_id = models.CharField(max_length=200, blank=True, null=True)
    withdraw_amount =  models.CharField(max_length=20, blank=True, null=True)
    method = models.CharField(
         max_length=20, choices=METHOD_TYPE, default=' ', blank=True, null=True)
