@@ -9,13 +9,16 @@ from .views import *
 from accounts.views import *
 
 urlpatterns = [
-    # auth/account/
+    # auth/account/ ----user info
     path("auth/account/",userProfileInfoPostData,name='create-user-profile-info'),
     path("auth/account/<str:user_id>",userProfileInfoGetData,name='get-user-profile-info'),
     
+    # account/access-book
+    path("auth/account/access-book/<str:user_id>",accessBookData,name='user-access-book'),
+    # account/readed-book
+    path("auth/account/readed-book/<str:user_id>",readedBookData,name='user-readed-book'),
     
     
-    # auth/account/ ----user info
     # auth/balance/ user account balance
     # chart/book-readed/ ----book readed chart
     # chart/site-visted/ ----site visited chart

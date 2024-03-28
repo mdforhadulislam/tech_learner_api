@@ -36,3 +36,15 @@ class UserProfileInfoSerializers(serializers.ModelSerializer):
       model = UserProfileInfo
       fields = "__all__"
    
+   
+class AccessBookSerializers(serializers.ModelSerializer):
+   class Meta:
+      model = AccessBook
+      fields = "__all__"
+   
+   
+class ReadedBookSerializers(serializers.ModelSerializer):
+   class Meta:
+      model = ReadedBook
+      fields = "__all__"
+   
