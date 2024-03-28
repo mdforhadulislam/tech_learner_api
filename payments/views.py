@@ -17,3 +17,16 @@ def subscription_single_data(request,id):
    except Exception as error:
       print(error)
       return respons_setup('there was an servier said error', {}, 400)
+
+
+
+@api_view(['GET'])
+def subscription_data(request):
+   try:
+        subscription_data = Subscription.objects.all()
+        subscription_data_serializer = SubscriptionSerializers(subscription_data,many=True)
+        subscription_data = subscription_data_serializer.data
+        return respons_setup('get subscription all data', subscription_data, 200)
+   except Exception as error:
+      print(error)
+      return respons_setup('there was an servier said error', {}, 400)

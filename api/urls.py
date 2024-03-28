@@ -9,9 +9,12 @@ from .views import *
 from accounts.views import *
 
 urlpatterns = [
-#     path('auth/login/', login, name='login'),
-#     path('auth/register/', register, name='register'),
-#     path('auth/logout/', knox_views.LogoutView.as_view(), name='logout'),
+    # auth/account/
+    path("auth/account/",userProfileInfoPostData,name='create-user-profile-info'),
+    path("auth/account/<str:user_id>",userProfileInfoGetData,name='get-user-profile-info'),
+    
+    
+    
     # auth/account/ ----user info
     # auth/balance/ user account balance
     # chart/book-readed/ ----book readed chart
@@ -27,6 +30,7 @@ urlpatterns = [
     # book/access-book/ --only show user access book
     # book/readed-book/ --only show user access book
     # subscription/ --show all Subscription
+    path('subscription/', subscription_data, name='subscription-data'),
     
     
     
@@ -41,10 +45,16 @@ urlpatterns = [
     path('land/categories/<str:id>/',under_categories_book, name='landing-categories-data'),
     
     # land/about/ ---about datiles 
+    path('land/about/',aboutData, name='landing-about-data'),
     # land/about/team-member/ ---about team member datiles 
+    path('land/about/team-member/',teamProfileData, name='landing-about-team-profile-data'),
+    
     # land/ques-ans/ ----question and answer section
+    path('land/ques-ans/',questionAndAnswerData,name='landing-question-and-answer-data'),
     # land/help-about/ -----our all deatils
+    path('land/help-about/',helpAboutData,name='landing-help-about-data'),
     # land/help-contact/ ----contact with us
+    path('land/help-contact/',helpContactData,name='landing-contact-data'),
     
     path('utils/session/<str:id>/',session_data, name='utils-session-data'),
     path('utils/tag/<str:id>/',tag_data, name='utils-tag-data'),
