@@ -1,6 +1,6 @@
 # from django.contrib.auth.models import User
-# from rest_framework import serializers, validators
-# from .models import *
+from rest_framework import serializers, validators
+from .models import *
 
 
 # class RegisterSerializer(serializers.ModelSerializer):
@@ -31,3 +31,20 @@
 #         return user
 
 
+class UserProfileInfoSerializers(serializers.ModelSerializer):
+   class Meta:
+      model = UserProfileInfo
+      fields = "__all__"
+   
+   
+class AccessBookSerializers(serializers.ModelSerializer):
+   class Meta:
+      model = AccessBook
+      fields = "__all__"
+   
+   
+class ReadedBookSerializers(serializers.ModelSerializer):
+   class Meta:
+      model = ReadedBook
+      fields = "__all__"
+   

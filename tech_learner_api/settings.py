@@ -9,7 +9,10 @@ SECRET_KEY = 'django-insecure-!))yl1@q6(t0+r8q4wb#ior4#nw37tl#15ixwx9ems7(!_t1mj
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_HEADERS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -25,7 +28,6 @@ INSTALLED_APPS = [
     'accounts',
     'books',
     'payments',
-    'landing',
     'utils'
 ]
 
