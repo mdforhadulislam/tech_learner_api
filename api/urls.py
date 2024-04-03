@@ -24,6 +24,7 @@ urlpatterns = [
     path('categories/',all_categories,name="all-categories"),
     path('categories/<str:categories_id>',under_categories_book,name="under-categories-book"),
     # book/ -----all book
+    path('free-read/book/<str:free_book_id>',free_book_pages,name="free-book-pages"),
     
     # land/about/ ---about datiles 
     path('utils/about/',aboutData, name='about-data'),

@@ -43,7 +43,18 @@ def single_book(request, book_id):
         single_book_data = Book.objects.get(id=book_id)
         single_book_data_serializer = BookSerializers(single_book_data)
         single_book_data = single_book_data_serializer.data
-
         return respons_setup('get all categories', single_book_data, 200)
+    except Exception as error:
+        return respons_setup('there was an servier said error', {}, 400)
+
+
+
+@api_view(["GET"])
+def free_book_pages(request, free_book_id):
+    try:
+        free_book_pages_data = FreeBooks.objects.get(id=free_book_id)
+        free_book_pages_data_serializer = FreeBooksSerializers(free_book_pages_data)
+        free_book_pages_data = free_book_pages_data_serializer.data
+        return respons_setup('get all categories', free_book_pages_data, 200)
     except Exception as error:
         return respons_setup('there was an servier said error', {}, 400)
