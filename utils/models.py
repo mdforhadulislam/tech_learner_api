@@ -17,12 +17,10 @@ class Tag(models.Model):
 
 
 
-
 class TeamProfile(models.Model):
    name =  models.CharField(max_length=50, blank=True, null=True)
    title =  models.CharField(max_length=50, blank=True, null=True)
    image = models.ImageField(upload_to='landing/about/', blank=True, null=True)
-
 
 
 

@@ -16,7 +16,7 @@ class TagSerializers(serializers.ModelSerializer):
       fields = "__all__"
    
    
-   
+
 
 
 class AboutSerializer(serializers.ModelSerializer):
