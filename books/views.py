@@ -19,9 +19,9 @@ def all_categories(request):
 
 
 @api_view(["GET"])
-def under_categories_book(request, id):
+def under_categories_book(request, categories_id):
     try:
-        single_categories = Categories.objects.get(id=id)
+        single_categories = Categories.objects.get(id=categories_id)
         single_categories_data_serializer = CategoriesSerializers(
             single_categories)
         single_categories_data = single_categories_data_serializer.data

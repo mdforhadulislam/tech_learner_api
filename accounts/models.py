@@ -38,7 +38,7 @@ class BookReadedChartData(models.Model):
     book_readed_number = models.CharField(max_length=12, blank=True, null=True)
 
     def __str__(self):
-        return f'{self.name} - {self.date} - {self.book_readed_number}'
+        return f'Name: {self.name} - Date: {self.date} - Readed Time:{self.book_readed_number}'
 
 
 class SiteVisitedChartData(models.Model):
@@ -48,7 +48,7 @@ class SiteVisitedChartData(models.Model):
         max_length=12, blank=True, null=True)
 
     def __str__(self):
-        return f'{self.name} - {self.date} - {self.site_visited_number}'
+        return f'Name: {self.name} - Date: {self.date} - Readed Time:{self.site_visited_number}'
 
 
 class UserBookReadedChart(models.Model):
@@ -57,7 +57,7 @@ class UserBookReadedChart(models.Model):
     datas = models.ManyToManyField(BookReadedChartData, blank=True)
 
     def __str__(self):
-        return f'{self.user_id} - {self.name}'
+        return f'User Id: {self.user_id} - Name: {self.name} '
 
 
 class UserSiteVisitedChart(models.Model):
@@ -66,7 +66,7 @@ class UserSiteVisitedChart(models.Model):
     datas = models.ManyToManyField(SiteVisitedChartData, blank=True)
 
     def __str__(self):
-        return f'{self.user_id} - {self.name}'
+        return f'User Id: {self.user_id} - Name: {self.name} '
 
 
 class AccessBook(models.Model):
@@ -74,7 +74,7 @@ class AccessBook(models.Model):
     access_book = models.ManyToManyField(Book, blank=True)
 
     def __str__(self):
-        return f'{self.user_id}'
+        return f'User Id: {self.user_id}'
 
 
 class ReadedBook(models.Model):
@@ -82,4 +82,4 @@ class ReadedBook(models.Model):
     readed_book = models.ManyToManyField(Book, blank=True)
 
     def __str__(self):
-        return f'{self.user_id}'
+        return f'User Id: {self.user_id}'

@@ -21,6 +21,8 @@ urlpatterns = [
     # auth/balance/ user account balance
     # chart/book-readed/ ----book readed chart
     # chart/site-visted/ ----site visited chart
+    path('categories/',all_categories,name="all-categories"),
+    path('categories/<str:categories_id>',under_categories_book,name="under-categories-book"),
     # book/ -----all book
     
     # land/about/ ---about datiles 
